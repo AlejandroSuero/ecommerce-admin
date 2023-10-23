@@ -1,14 +1,22 @@
-import { UserButton } from "@clerk/nextjs";
+"use client";
+
+import { useEffect } from "react";
+
+import { useStoreModal } from "@/hooks/use-store-modal";
 
 export default function SetupPage() {
+  const onOpen = useStoreModal((state) => state.onOpen);
+  const isOpen = useStoreModal((state) => state.isOpen);
+
+  useEffect(() => {
+    if (!isOpen) {
+      onOpen();
+    }
+  }, [isOpen, onOpen]);
+
   return (
-    <>
-      <header className="h-20 w-full">
-        <nav className="flex items-center justify-between h-full mx-10">
-          <h1 className="uppercase font-bold text-2xl tracking-tighter antialiased">Admin Dashboard</h1>
-          <UserButton afterSignOutUrl="/" />
-        </nav>
-      </header>
-    </>
+    <div className="p-4">
+      RootPage
+    </div>
   );
 }
