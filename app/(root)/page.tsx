@@ -1,12 +1,12 @@
-import { Button } from "@/components/ui/button";
+import { UserButton } from "@clerk/nextjs";
 
-export default function Home() {
+export default function SetupPage() {
   return (
     <>
-      <header className="mt-10">
-        <nav className="flex flex-row justify-center items-center gap-4">
-          <h1>Admin Dashboard</h1>
-          <Button>Home</Button>
+      <header className="h-20 w-full">
+        <nav className="flex items-center justify-between h-full mx-10">
+          <h1 className="uppercase font-bold text-2xl tracking-tighter antialiased">Admin Dashboard</h1>
+          <UserButton afterSignOutUrl="/" />
         </nav>
       </header>
     </>
